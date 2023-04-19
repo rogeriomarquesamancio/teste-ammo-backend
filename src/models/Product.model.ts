@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
-const { database, options } = require('../database/Database');
+import { database, options } from '../database/Database'
 
-const Product = database.define('products', {
+const productModel = database.define('products', {
     idProduct: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -34,4 +34,4 @@ const Product = database.define('products', {
     },
 }, options);
 
-module.exports = Product;
+export { productModel };

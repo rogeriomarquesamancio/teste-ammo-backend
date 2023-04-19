@@ -11,7 +11,7 @@ const doc = {
 };
 
 const endpointsFiles = [
-    './src/controllers/Product.controller.js',
+    './src/controllers/Product.controller.ts',
 ];
 
 const outputFile = './src/doc/swagger_doc.json';

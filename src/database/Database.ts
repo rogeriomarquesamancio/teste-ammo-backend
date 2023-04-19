@@ -1,4 +1,4 @@
-const dotEnv = require('dotenv');
+import dotEnv from 'dotenv'
 const sequelize = require('sequelize');
 
 dotEnv.config();
@@ -20,7 +20,7 @@ const options = {
     updatedAt: false,
 }
 
-module.exports = {
+export {
     database,
     options
 };

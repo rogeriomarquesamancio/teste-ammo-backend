@@ -1,18 +1,18 @@
-function responseError(msg) {
+function responseError(msg: any) {
     return {
         msg: msg,
         status: false
     }
 }
 
-function responseSucces(data) {
+function responseSucces(data: any) {
     return {
         data: data,
         status: true
     }
 }
 
-module.exports = {
+export default {
     responseSucces,
     responseError
 }

@@ -1,9 +1,10 @@
-const express = require('express');
-const fr = require('../utils/FormatResponse');
-const productService = require('../services/Product.service');
+import express from 'express'
+import fr from '../utils/FormatResponse'
+import productService from '../services/Product.service'
+
 const productController = express.Router();
 
-productController.get('/product/searchProduct', (req, res, next) => {
+productController.get('/product/searchProduct', (req: any, res: any, next) => {
     // #swagger.tags = ['product']
     // #swagger.description = 'Pesquisar produtos'
 
@@ -25,11 +26,10 @@ productController.get('/product/searchProduct', (req, res, next) => {
     } */
 
     const query = req.query;
-    productService.searchProducts(query.term, query.page, query.itens).then((response) => {
+    productService.searchProducts(query.term , query.page , query.itens).then((response: any) => {
         const data = fr.responseSucces(response);
-        console.log(data)
         res.send(data);
-    }).catch((error) => {
+    }).catch((error: any) => {
         const data = fr.responseError(error.message);
         res.status(500).send(data);
     });
@@ -60,5 +60,4 @@ productController.get('/product/searchProduct', (req, res, next) => {
 });
 
 
-
-module.exports = productController;
+export { productController };

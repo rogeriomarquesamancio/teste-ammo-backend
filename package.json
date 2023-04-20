@@ -4,9 +4,10 @@
 	"description": "",
 	"main": "./src/server.ts",
 	"scripts": {
-		"start": "node ./src/server.ts",
+		"start": "node ./dist/server.ts",
 		"dev": "nodemon --ignore swagger_doc.json ./src/server.ts",
-		"doc": "node ./src/doc/Swagger.ts"
+		"doc": "node ./src/doc/Swagger.ts",
+		"build": "tsc -p ."      
 	},
 	"keywords": [],
 	"author": "",

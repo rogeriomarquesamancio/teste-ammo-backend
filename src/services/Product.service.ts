@@ -20,7 +20,7 @@ async function searchProducts(term = '', page: number, amoutItems: number) {
 
     return {
         productList: data.rows,
-        pageCount: pageCount
+        pageCount: pageCount,
     };
 }
 

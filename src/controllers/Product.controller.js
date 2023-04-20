@@ -1,41 +1,40 @@
-import express from 'express'
-import fr from '../utils/FormatResponse'
-import productService from '../services/Product.service'
-import { productImagesModel } from '../models/ProductImages.model'
-
-const productController = express.Router();
-
-productController.get('/product/searchProduct', (req: any, res: any) => {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.productController = void 0;
+const express_1 = __importDefault(require("express"));
+const FormatResponse_1 = __importDefault(require("../utils/FormatResponse"));
+const Product_service_1 = __importDefault(require("../services/Product.service"));
+const productController = express_1.default.Router();
+exports.productController = productController;
+productController.get('/product/searchProduct', (req, res) => {
     // #swagger.tags = ['product']
     // #swagger.description = 'Pesquisar produtos'
-
     /* #swagger.parameters['term'] = {
         description: 'Termo para buscar o produto',
         type: 'string'
     } */
-
     /* #swagger.parameters['page'] = {
         description: 'Página de itens.',
         required: true,
         type: 'integer'
     } */
-
     /* #swagger.parameters['itens'] = {
         description: 'Quantidade de itens a buscar.',
         required: true,
         type: 'integer'
     } */
-
     const query = req.query;
-    productService.searchProducts(query.term, query.page, query.itens).then((response: any) => {
-        const data = fr.responseSucces(response);
+    Product_service_1.default.searchProducts(query.term, query.page, query.itens).then((response) => {
+        const data = FormatResponse_1.default.responseSucces(response);
         res.send(data);
-    }).catch((error: any) => {
-        const data = fr.responseError(error.message);
+    }).catch((error) => {
+        const data = FormatResponse_1.default.responseError(error.message);
         res.status(500).send(data);
     });
-
-    /* #swagger.responses[200] = { 
+    /* #swagger.responses[200] = {
         schema: {
             data: [{
                 idProduct: 0,
@@ -48,17 +47,13 @@ productController.get('/product/searchProduct', (req: any, res: any) => {
             }],
             status: true
         },
-        description: 'Sucesso.' 
+        description: 'Sucesso.'
     } */
-
-    /* #swagger.responses[500] = { 
+    /* #swagger.responses[500] = {
         schema: {
             msg: 'Mensagem de erro.',
             status: false
         },
-        description: 'Erro.' 
+        description: 'Erro.'
     } */
-
 });
-
-export { productController };

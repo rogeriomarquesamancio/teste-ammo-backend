@@ -1,25 +1,35 @@
-import { Op } from 'sequelize'
-import { Sequelize } from 'sequelize'
-import { productModel } from './../models/Product.model'
-import { productImagesModel } from './../models/ProductImages.model'
+import { prismaClient } from '../database/PrismaClient';
 
-async function searchProducts(term = '', page: number, amoutItems: number) {
+async function searchProducts(term = '', page: number, amountItems: number) {
     term = `%${term}%`;
     page = page - 1;
-    amoutItems = amoutItems;
+    amountItems = amountItems;
 
-    const data = await productModel.findAndCountAll({
-        offset: Number(page * amoutItems),
-        limit: Number(amoutItems),
-        include: {
-            model: productImagesModel,
+    const data =  await prismaClient.product.findMany({
+        take: Number(amountItems),
+        skip: Number(page * amountItems),
+        where: {
+            name:{
+                contains: term
+            }
         },
-    });
-
-    const pageCount = data.count >= 1 ? Math.ceil(data.count / amoutItems) : 0;
+        include: {
+            images: true
+        }
+    })
+    
+    const countItens =  await prismaClient.product.count({
+        where: {
+            name:{
+                contains: term
+            }
+        },
+    })
+    
+    const pageCount = countItens >= 1 ? Math.ceil(countItens / amountItems) : 0;
 
     return {
-        productList: data.rows,
+        productList: data,
         pageCount: pageCount,
     };
 }

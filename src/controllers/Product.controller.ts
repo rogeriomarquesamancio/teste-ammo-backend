@@ -1,7 +1,6 @@
 import express from 'express'
 import fr from '../utils/FormatResponse'
 import productService from '../services/Product.service'
-import { productImagesModel } from '../models/ProductImages.model'
 
 const productController = express.Router();
 

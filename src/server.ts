@@ -1,12 +1,11 @@
-const cors = require('cors');
-const dotEnv = require('dotenv');
-const express = require('express');
-const swaggerUi = require('swagger-ui-express');
-const squelize = require('sequelize')
-const { database } = require('./database/Database');
-const swaggerFile = require('./doc/swagger_doc.json');
 
-const { productController } = require('./controllers');
+import cors from 'cors'
+import dotEnv from 'dotenv'
+import express from 'express'
+import swaggerUi from 'swagger-ui-express'
+import swaggerFile from './doc/swagger_doc.json'
+import { productController } from './controllers'
+
 
 // Configuração do servidor
 const app = express();
@@ -16,21 +15,8 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
-
 // Configuração das rotas
 app.use(productController);
-
-
-// Conectar com banco de dados
-database.authenticate().then(() => {
-	console.log('Conectado ao banco com sucesso!');
-	return database.sync();
-}).then(() => {
-	console.log('Banco de dados sincronizado!');
-}).catch(() => {
-	console.log('Erro ao conectar ao banco.');
-});
-
 
 // Inicialização do servidor
 const port = process.env.PORT || 3001;

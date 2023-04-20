@@ -24,10 +24,6 @@ const productModel = database.define('products', {
         type: Sequelize.DOUBLE,
         allowNull: false
     },
-    images: {
-        type: Sequelize.TEXT('long'),
-        allowNull: false
-    },
     category: {
         type: Sequelize.STRING,
         allowNull: false

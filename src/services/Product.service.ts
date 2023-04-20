@@ -1,6 +1,7 @@
 import { Op } from 'sequelize'
-
+import { Sequelize } from 'sequelize'
 import { productModel } from './../models/Product.model'
+import { productImagesModel } from './../models/ProductImages.model'
 
 async function searchProducts(term = '', page: number, amoutItems: number) {
     term = `%${term}%`;
@@ -12,7 +13,21 @@ async function searchProducts(term = '', page: number, amoutItems: number) {
         limit: Number(amoutItems),
         where: {
             name: { [Op.like]: term },
-        }
+        },
+        /*   include: [
+              {
+                  model: productImagesModel,
+                  where: { [Op.col]: 'idProduct' },
+              },
+          ], */
+        /* include: [
+            {
+                model: productImagesModel,
+                on: {
+                    idProduct: Sequelize.col('idProduct')
+                },
+            },
+        ], */
     });
 
     const pageCount = data.count >= 1 ? Math.ceil(data.count / amoutItems) : 0;

@@ -4,8 +4,10 @@ const sequelize = require('sequelize');
 dotEnv.config();
 
 function createConnection() {
+
     if (process.env.DATABASE === 'mysql') {
-        return new sequelize('AmmoVarejoDB', process.env.USER, process.env.PASSWORD, {
+        
+        return new sequelize('ammovarejodb', process.env.USER, process.env.PASSWORD, {
             dialect: 'mysql',
             host: 'localhost'
         });

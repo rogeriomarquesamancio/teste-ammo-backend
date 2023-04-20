@@ -5,10 +5,10 @@
     "title": "Ammo Varejo RestAPI",
     "description": "Somos responsáveis pelas operações de varejo das marcas Santista, ARTEX, Persono, mmartan e casa moysés!"
   },
-  "host": "localhost:3000",
+  "host": "localhost",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/product/searchProduct": {

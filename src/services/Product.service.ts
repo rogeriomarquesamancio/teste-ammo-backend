@@ -31,6 +31,7 @@ async function searchProducts(term = '', page: number, amountItems: number) {
     return {
         productList: data,
         pageCount: pageCount,
+        totalItens: countItens,
     };
 }
 

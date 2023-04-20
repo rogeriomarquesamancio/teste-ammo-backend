@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url = env("DATABASE_URL")
+  url = "postgres://ammo_varejo_api_database_user:JfeBgJlE8UrVlDA0e2AdM2uQ9b5nbNE1@dpg-ch0nif3h4hsukp4b0b8g-a.oregon-postgres.render.com/ammo_varejo_api_database"
 }
 
 model Product {

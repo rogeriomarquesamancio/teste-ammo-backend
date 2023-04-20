@@ -19,6 +19,9 @@ const productImagesModel = database.define('productsimages', {
     },
 }, options);
 
-productImagesModel.belongsTo(productModel, { foreignKey: 'idProduct', as: 'product'})
+
+productImagesModel.associate = () => {
+    productImagesModel.belongsTo(productModel, { foreignKey: 'idProduct' });
+};
 
 export { productImagesModel };

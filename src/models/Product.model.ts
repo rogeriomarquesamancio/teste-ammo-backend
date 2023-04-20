@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 import { database, options } from '../database/Database'
+import { productImagesModel } from './ProductImages.model';
 
 const productModel = database.define('products', {
     idProduct: {
@@ -29,5 +30,7 @@ const productModel = database.define('products', {
         allowNull: false
     },
 }, options);
+
+productModel.hasMany(productImagesModel, { foreignKey: 'idProduct' });
 
 export { productModel };

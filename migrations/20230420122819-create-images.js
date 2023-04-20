@@ -3,6 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
+
     await queryInterface.createTable('productsImages', {
       idImage: {
         type: Sequelize.INTEGER,
@@ -13,6 +14,7 @@ module.exports = {
       idProduct: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        foreignKey: true,
         references: {
           model: "products",
           key: "idProduct"

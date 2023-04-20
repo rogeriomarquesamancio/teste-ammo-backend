@@ -11,23 +11,9 @@ async function searchProducts(term = '', page: number, amoutItems: number) {
     const data = await productModel.findAndCountAll({
         offset: Number(page * amoutItems),
         limit: Number(amoutItems),
-        where: {
-            name: { [Op.like]: term },
+        include: {
+            model: productImagesModel,
         },
-        /*   include: [
-              {
-                  model: productImagesModel,
-                  where: { [Op.col]: 'idProduct' },
-              },
-          ], */
-        /* include: [
-            {
-                model: productImagesModel,
-                on: {
-                    idProduct: Sequelize.col('idProduct')
-                },
-            },
-        ], */
     });
 
     const pageCount = data.count >= 1 ? Math.ceil(data.count / amoutItems) : 0;

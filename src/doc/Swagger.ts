@@ -6,7 +6,7 @@ const doc = {
         title: 'Ammo Varejo RestAPI',
         description: 'Somos responsáveis pelas operações de varejo das marcas Santista, ARTEX, Persono, mmartan e casa moysés!',
     },
-    host: 'localhost',
+    host: 'ammo-varejo-api.onrender',
     schemes: ['https']
 };
 

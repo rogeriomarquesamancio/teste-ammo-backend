@@ -1,5 +1,7 @@
+import { categoryController } from './Category.controller';
 import { productController } from './Product.controller';
 
 export {
-    productController,
+    categoryController,
+    productController
 }

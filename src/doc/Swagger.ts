@@ -4,14 +4,15 @@ const doc = {
     info: {
         version: '1.0.0',
         title: 'Ammo Varejo RestAPI',
-        description: 'Somos responsáveis pelas operações de varejo das marcas Santista, ARTEX, Persono, mmartan e casa moysés!',
+        description: 'Teste prático para o grupo Ammo Varejo.',
     },
-    host: 'ammo-varejo-api.onrender.com',
-    schemes: ['https']
+    host: 'localhost:3001',
+    schemes: ['http']
 };
 
 const endpointsFiles = [
     './src/controllers/Product.controller.ts',
+    './src/controllers/Category.controller.ts',
 ];
 
 const outputFile = './src/doc/swagger_doc.json';

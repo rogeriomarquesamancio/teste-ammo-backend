@@ -1,18 +1,25 @@
-function responseError(msg: any) {
-    return {
-        msg: msg,
-        status: false
+interface IGenericResponse<T> {
+    data: T,
+    msg: string | null,
+    status: boolean
+}
+
+class FormatResponse {
+    public success<T>(data: T): IGenericResponse<T> {
+        return {
+            data: data,
+            msg: null,
+            status: true
+        };
+    }
+
+    public error(message: string): IGenericResponse<null> {
+        return {
+            data: null,
+            msg: message,
+            status: false
+        };
     }
 }
 
-function responseSucces(data: any) {
-    return {
-        data: data,
-        status: true
-    }
-}
-
-export default {
-    responseSucces,
-    responseError
-}
+export default new FormatResponse();

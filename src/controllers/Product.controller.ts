@@ -1,10 +1,12 @@
-import express from 'express'
-import fr from '../utils/FormatResponse'
+import express, { Request, Response } from 'express'
+
+import { IRequestSearchProductInput } from '../interfaces/Product.interface';
 import productService from '../services/Product.service'
+import FormatResponse from '../utils/FormatResponse';
 
 const productController = express.Router();
 
-productController.get('/product/searchProduct', (req: any, res: any) => {
+productController.get('/product/searchProduct', async (req: Request<null, null, null, IRequestSearchProductInput>, res: Response) => {
     // #swagger.tags = ['product']
     // #swagger.description = 'Pesquisar produtos'
 
@@ -14,48 +16,58 @@ productController.get('/product/searchProduct', (req: any, res: any) => {
     } */
 
     /* #swagger.parameters['page'] = {
-        description: 'Página de itens.',
+        description: 'Página dos itens',
         required: true,
         type: 'integer'
     } */
 
     /* #swagger.parameters['itens'] = {
-        description: 'Quantidade de itens a buscar.',
+        description: 'Quantidade de itens a buscar',
         required: true,
         type: 'integer'
     } */
 
     const query = req.query;
-    productService.searchProducts(query.term, query.page, query.itens).then((response: any) => {
-        const data = fr.responseSucces(response);
+    productService.searchProducts(query.term, query.page, query.itens).then((response) => {
+        const data = FormatResponse.success(response);
         res.send(data);
-    }).catch((error: any) => {
-        const data = fr.responseError(error.message);
-        res.status(500).send(data);
+    }).catch((error: Error) => {
+        const data = FormatResponse.error(error.message);
+        res.send(500).send(data);
     });
 
     /* #swagger.responses[200] = { 
         schema: {
             data: [{
-                idProduct: 0,
+                idProduct: '0',
                 name: 'nome',
                 description: 'descricao',
                 promotionalPrice: 'preco promocional',
                 originalPrice: 'preco original',
-                images: 'imagens',
-                category: 'categoria',
+                idCategory: 'id da categoria',
+                images: [
+                    {
+                        idImage: 0,
+                        idProduct: 0,
+                        src: 'caminho para a imagem'
+                    }
+                ],
+                category: {
+                    idCategory: 'id categoria',
+                    name: 'nome da categoria'
+                },
             }],
             status: true
         },
-        description: 'Sucesso.' 
+        description: 'Sucesso' 
     } */
-
+    
     /* #swagger.responses[500] = { 
         schema: {
             msg: 'Mensagem de erro.',
             status: false
         },
-        description: 'Erro.' 
+        description: 'Erro' 
     } */
 
 });

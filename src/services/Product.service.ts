@@ -5,27 +5,28 @@ async function searchProducts(term = '', page: number, amountItems: number) {
     page = page - 1;
     amountItems = amountItems;
 
-    const data =  await prismaClient.product.findMany({
+    const data = await prismaClient.product.findMany({
         take: Number(amountItems),
         skip: Number(page * amountItems),
         where: {
-            name:{
+            name: {
                 contains: term
             }
         },
         include: {
-            images: true
+            images: true,
+            category: true
         }
     })
-    
-    const countItens =  await prismaClient.product.count({
+
+    const countItens = await prismaClient.product.count({
         where: {
-            name:{
+            name: {
                 contains: term
             }
         },
     })
-    
+
     const pageCount = countItens >= 1 ? Math.ceil(countItens / amountItems) : 0;
 
     return {

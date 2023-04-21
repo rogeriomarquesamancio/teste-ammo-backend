@@ -1,32 +1,38 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url = env("DATABASE_URL")
+    provider = "mysql"
+    url      = env("DATABASE_URL")
 }
 
 model Product {
-    idProduct Int @id @unique @default(autoincrement())
-    name String
-    description String
-    originalPrice Float
-    promotionalPrice Float
-    category String
-    images ProductImage[]
+    idProduct        Int            @id @unique @default(autoincrement())
+    name             String         @db.VarChar(500)
+    description      String         @db.VarChar(500)
+    originalPrice    Float
+    promotionalPrice Float?
+    images           ProductImage[]
+    idCategory       Int
+    category         Category       @relation(fields: [idCategory], references: [idCategory])
 
     @@map("product")
 }
 
 model ProductImage {
-    idImage Int  @id @unique @default(autoincrement())
+    idImage   Int     @id @unique @default(autoincrement())
     idProduct Int
-    src String
-    product Product @relation(fields: [idProduct], references: [idProduct])
+    src       String  @db.VarChar(500)
+    product   Product @relation(fields: [idProduct], references: [idProduct])
 
     @@map("productImage")
+}
+
+model Category {
+    idCategory Int       @id @unique @default(autoincrement())
+    name       String    @db.VarChar(100)
+    Product    Product[]
+
+    @@map("category")
 }

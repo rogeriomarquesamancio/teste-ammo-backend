@@ -7,7 +7,7 @@ const doc = {
         description: 'Teste prático para o grupo Ammo Varejo.',
     },
     host: 'ammo-varejo-api.onrender.com',
-    schemes: ['https']
+    schemes: ['https', 'http']
 };
 
 const endpointsFiles = [

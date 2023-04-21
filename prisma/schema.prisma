@@ -14,8 +14,8 @@ model Product {
     originalPrice    Float
     promotionalPrice Float?
     images           ProductImage[]
-    idCategory       Int            @unique
-    category         Category?
+    idCategory       Int 
+    category         Category       @relation(fields: [idCategory], references: [idCategory])
 
     @@map("product")
 }
@@ -30,9 +30,9 @@ model ProductImage {
 }
 
 model Category {
-    idCategory Int     @id @unique @default(autoincrement())
-    name       String  @db.VarChar(100)
-    product    Product @relation(fields: [idCategory], references: [idCategory])
+    idCategory Int       @id @unique @default(autoincrement())
+    name       String    @db.VarChar(100)
+    product    Product[]
 
     @@map("category")
 }

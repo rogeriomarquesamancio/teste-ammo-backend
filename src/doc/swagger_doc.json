@@ -5,9 +5,10 @@
     "title": "Ammo Varejo RestAPI",
     "description": "Teste prático para o grupo Ammo Varejo."
   },
-  "host": "localhost:3001",
+  "host": "ammo-varejo-api.onrender.com",
   "basePath": "/",
   "schemes": [
+    "https",
     "http"
   ],
   "paths": {

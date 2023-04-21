@@ -6,8 +6,8 @@ const doc = {
         title: 'Ammo Varejo RestAPI',
         description: 'Teste prático para o grupo Ammo Varejo.',
     },
-    host: 'localhost:3001',
-    schemes: ['http']
+    host: 'ammo-varejo-api.onrender.com',
+    schemes: ['https']
 };
 
 const endpointsFiles = [

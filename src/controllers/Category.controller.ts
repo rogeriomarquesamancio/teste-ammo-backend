@@ -11,17 +11,17 @@ categoryController.get('/category/searchByTerm', async (req: Request<null, null,
     // #swagger.description = 'Pesquisar categorias'
 
     /* #swagger.parameters['term'] = {
-        description: 'Termo para buscar a categoria',
+        description: 'Termo para buscar a categoria  (Exemplo: Cama)',
         type: 'string'
     } */
 
     const query = req.query;
     categoryService.searchByTerm(query.term).then((response) => {
         const data = FormatResponse.success(response.categoryList);
-        res.send(data);
+        res.status(200).json(data);
     }).catch((error: Error) => {
         const data = FormatResponse.error(error.message);
-        res.send(500).send(data);
+        res.status(500).json(data);
     });
 
     /* #swagger.responses[200] = { 

@@ -21,7 +21,7 @@
         "parameters": [
           {
             "name": "term",
-            "description": "Termo para buscar o produto",
+            "description": "Termo para buscar o produto (Exemplo: Kit Cama)",
             "type": "string",
             "in": "query"
           },
@@ -152,7 +152,7 @@
         "parameters": [
           {
             "name": "term",
-            "description": "Termo para buscar a categoria",
+            "description": "Termo para buscar a categoria (Exemplo: Cama)",
             "type": "string",
             "in": "query"
           }

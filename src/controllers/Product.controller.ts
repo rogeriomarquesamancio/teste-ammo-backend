@@ -11,7 +11,7 @@ productController.get('/product/searchProduct', async (req: Request<null, null, 
     // #swagger.description = 'Pesquisar produtos'
 
     /* #swagger.parameters['term'] = {
-        description: 'Termo para buscar o produto',
+        description: 'Termo para buscar o produto (Exemplo: Kit Cama)',
         type: 'string'
     } */
 
@@ -30,10 +30,10 @@ productController.get('/product/searchProduct', async (req: Request<null, null, 
     const query = req.query;
     productService.searchProducts(query.term, query.page, query.itens).then((response) => {
         const data = FormatResponse.success(response);
-        res.send(data);
+        res.status(200).json(data);
     }).catch((error: Error) => {
         const data = FormatResponse.error(error.message);
-        res.send(500).send(data);
+        res.status(500).json(data);
     });
 
     /* #swagger.responses[200] = { 

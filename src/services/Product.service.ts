@@ -10,7 +10,9 @@ async function searchProducts(term = '', page: number, amountItems: number) {
         skip: Number(page * amountItems),
         where: {
             name: {
-                contains: term
+                contains: term,
+                //@ts-ignore
+                mode: 'insensitive',
             }
         },
         include: {

@@ -24,7 +24,9 @@ async function searchProducts(term = '', page: number, amountItems: number) {
     const countItens = await prismaClient.product.count({
         where: {
             name: {
-                contains: term
+                contains: term,
+                //@ts-ignore
+                mode: 'insensitive',
             }
         },
     })

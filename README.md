@@ -94,7 +94,7 @@ Utilize o swagger para facilitar o uso, o mesmo contém a documentação necess�
 <!-- BANCO DE DADOS -->
 ## Banco de dados
 
-Localmente foi utilizado o banco de dados MYSQL e no ambiente de produção o banco POSTGRESQL os mesmos seguem as mesmas entidades e dados.
+Localmente foi utilizado o banco de dados MySQL e no ambiente de produção o banco POSTGRESQL os mesmos seguem as mesmas entidades e dados.
 
 <img src="https://media.discordapp.net/attachments/850486663184777236/1099742064494784713/image.png" alt="Logo" width="1000" height="700">
 
@@ -108,8 +108,8 @@ Linkedin - (https://www.linkedin.com/in/rogerio-marques-11b442207/)
 <!-- CURIOSIDADES -->
 ## Curiosidades
 
-Informações aleatórias sobre a construção do projeto.
+Informações sobre a construção do projeto.
 
-* No projeto inicialmente foi utilizado Sequelize.
-* Foram feitos 27 commits ( main e develop )
-* Inicialmente o projeto seria todo em MYSQL, porém a plataforma Render suporta apenas PostgreSQL.
+* No projeto inicialmente foi utilizado o ORM Sequelize e trocado pelo Prisma, devido suas vantagens.
+* Foram feitos 28 commits ( main e develop )
+* Inicialmente o projeto seria todo em MySQL, porém a plataforma Render suporta apenas PostgreSQL.

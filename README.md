@@ -31,7 +31,7 @@ O projeto foi desenvolvido com as seguintes tecnologias/plataformas:
 * ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 * ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 * ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
-* ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB
+* ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 * ![Swagger](https://img.shields.io/badge/-Swagger-%23Clojure?style=for-the-badge&logo=swagger&logoColor=white)
 * ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
 * ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
@@ -111,5 +111,5 @@ Linkedin - (https://www.linkedin.com/in/rogerio-marques-11b442207/)
 Informações aleatórias sobre a construção do projeto.
 
 * No projeto inicialmente foi utilizado Sequelize.
-* Foram feitos 26 commits ( main e develop )
+* Foram feitos 27 commits ( main e develop )
 * Inicialmente o projeto seria todo em MYSQL, porém a plataforma Render suporta apenas PostgreSQL.

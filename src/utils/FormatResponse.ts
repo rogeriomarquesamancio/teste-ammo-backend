@@ -4,6 +4,7 @@ interface IGenericResponse<T> {
     status: boolean
 }
 
+// Formato genérico de response
 class FormatResponse {
     public success<T>(data: T): IGenericResponse<T> {
         return {

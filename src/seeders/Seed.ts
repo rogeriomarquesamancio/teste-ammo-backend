@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
+// Seed categorias
 const categorys: any = [
 	{
 		name: 'Cama',
@@ -17,6 +18,7 @@ const categorys: any = [
 	},
 ]
 
+// Seed produtos
 const products: any = [
 	{
 		name: 'Kit Cama Algodão Egípcio Acetinado Deluxe Essenza',

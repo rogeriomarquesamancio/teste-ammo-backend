@@ -13,8 +13,6 @@ async function searchProducts(term = '', page: number, amountItems: number) {
         where: {
             name: {
                 contains: term,
-                //@ts-ignore
-                mode: 'insensitive',
             }
         },
         include: {
@@ -28,8 +26,6 @@ async function searchProducts(term = '', page: number, amountItems: number) {
         where: {
             name: {
                 contains: term,
-                //@ts-ignore
-                mode: 'insensitive',
             }
         },
     })
